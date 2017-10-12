@@ -4,9 +4,9 @@
     font-weight: 200;
     color: #000;
     /* Location of the image */
-    background-image: url('../images/two_queens_blended_background.png');
+    background-image: url('../images/twoQueens.jpg');
     /* Background image is centered vertically and horizontally at all times */
-    background-position: top center;
+    background-position: center top;
     /* Background image doesn't tile */
     background-repeat: no-repeat;
     /* Background image is fixed in the viewport so that it doesn't move when 
@@ -32,17 +32,6 @@ a {
 .as-container {
 }
 
-/*/footer {
-    color: #F5F5F5 !important;
-    background-color: rgba(35, 56, 63, .2);
-
-    background: #42A5F5;
-    color: white;
-    line-height: 50px;
-    padding: 0 20px;
-
-}*/
-
 footer {
     position: absolute;
     padding: 1em;
@@ -63,7 +52,7 @@ h1 {
     background-color: rgba(0,0,0,0.4); /*spooky gray*/
     padding: 1em; /*use em as much as possible*/
     position: relative;
-    top: 5em;
+    top: 2em;
 }
 
 
@@ -101,3 +90,23 @@ textarea::placeholder {
         background-color: whitesmoke;
         color: #353D40;
     }
+
+
+/**    
+    ****** MOBILE FRIENDLY ********
+    Compatible with phone, tablet screens     
+
+ **/
+
+@media screen and (min-width:1200px){
+    body {
+        background: #000 url('../images/two_queens_blended_background.png') no-repeat center top;
+        background-size: cover;
+    }
+}
+
+@media screen and (max-width:1200px){
+    body{
+        background: #000 url('../images/twoQueens.jpg') no-repeat top top;
+    }
+}
