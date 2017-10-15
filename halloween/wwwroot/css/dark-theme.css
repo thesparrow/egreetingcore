@@ -2,22 +2,22 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 16px;
     font-weight: 200;
-    color: #000;
+    color: #353D40;
     /* Location of the image */
-    background-image: url('../images/twoQueens.jpg');
+    /*background-image: url('../images/twoQueens.jpg');
     /* Background image is centered vertically and horizontally at all times */
-    background-position: center top;
+    /*background-position: center top;*/
     /* Background image doesn't tile */
-    background-repeat: no-repeat;
+    /*background-repeat: no-repeat;*/
     /* Background image is fixed in the viewport so that it doesn't move when 
      the content's height is greater than the image's height */
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
     /* This is what makes the background image rescale based
      on the container's size */
-    background-size: cover;
+    /*background-size: cover;*/
     /* Set a background color that will be displayed
      while the background image is loading */
-    background-color: rgb(200, 214, 223);
+    background-color: #B6C7CF;
 }
 
 a {
@@ -44,7 +44,7 @@ footer {
 }
 
 h1 {
-    text-shadow: 0.1em 0.1em #23383F;
+    text-shadow: 0.06em 0.03em #23383F;
     color: whitesmoke;
 }
 
@@ -98,15 +98,18 @@ textarea::placeholder {
 
  **/
 
-@media screen and (min-width:1200px){
+@media only screen and (min-width: 1200px) {
     body {
         background: #000 url('../images/two_queens_blended_background.png') no-repeat center top;
         background-size: cover;
     }
+    .as-transparent-form {
+        /*float: right;*/ 
+    }
 }
 
-@media screen and (max-width:1200px){
-    body{
-        background: #000 url('../images/twoQueens.jpg') no-repeat top top;
+@media only screen and (min-width: 768px) {
+    body {
+        background-color: #B6C7CF;
     }
 }
