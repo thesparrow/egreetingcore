@@ -10,7 +10,9 @@ namespace halloween.Models
     public class Greetings
     {
         [DisplayName("Send To Name")]
+        [Display(Prompt = "First Name")] //this is the placeholder 
         [Required(ErrorMessage="This field is required.")]
+        [StringLength(100, MinimumLength =3, ErrorMessage ="Name should be greater than 3, less than a 100.")]
         public string SendTo { get; set; }
 
         [DisplayName("Send To Email")]
