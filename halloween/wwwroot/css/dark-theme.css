@@ -49,6 +49,7 @@ h1 {
 }
 
 .as-transparent-form {
+    border: 1px solid;
     background-color: rgba(0,0,0,0.4); /*spooky gray*/
     padding: 1em; /*use em as much as possible*/
     position: relative;
