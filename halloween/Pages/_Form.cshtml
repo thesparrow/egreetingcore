@@ -12,11 +12,14 @@
                 <!-- SEND TO-->
                 <div class="form-group">
                     @*<input type="text" class="form-control" name="sendTo" placeholder="Send To"
-                           maxlength="100" required>*@
-                    @Html.TextBoxFor(model => model.bridgeGreetings.SendTo,
+                           maxlength="100" required>*@         
+                    <input type="text" name="bridgeGreetings.SendTo" class="form-control" maxlength="100">
+
+                    
+                    @*@Html.TextBoxFor(model => model.bridgeGreetings.SendTo,
                             new { type = "text", @class = "form-control", placeholder = "Send To", maxkength = "100" })
 
-                    @Html.ValidationMessageFor(model =>model.bridgeGreetings.SendTo)
+                    @Html.ValidationMessageFor(model =>model.bridgeGreetings.SendTo)*@
                 </div>
                
                 <div class="form-group">
@@ -45,8 +48,12 @@
             <div class="col-lg-6 col-lg-offset-6 col-md-8">
 
                 <div class="form-group">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" maxlength="100">
-                    <div class="countdown"></div>
+                    <label class="col-2" asp-for="bridgeGreetings.Subject"> </label>
+                    <div class="col-10">
+                        <input type="text" asp-for="bridgeGreetings.Subject" class="form-control" placeholder="" maxlength="100">
+                        <div asp-validation-for="bridgeGreetings.Subject" class="text-danger"></div>
+                        <div class="countdown"></div>
+                    </div>
                 </div>
 
                 <textarea class="form-control" name="message" placeholder="Send your spooky greeting here!"
