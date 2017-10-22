@@ -3,21 +3,9 @@
     font-size: 16px;
     font-weight: 200;
     color: #353D40;
-    /* Location of the image */
-    /*background-image: url('../images/twoQueens.jpg');
-    /* Background image is centered vertically and horizontally at all times */
-    /*background-position: center top;*/
-    /* Background image doesn't tile */
-    /*background-repeat: no-repeat;*/
-    /* Background image is fixed in the viewport so that it doesn't move when 
-     the content's height is greater than the image's height */
-    /*background-attachment: fixed;*/
-    /* This is what makes the background image rescale based
-     on the container's size */
-    /*background-size: cover;*/
-    /* Set a background color that will be displayed
-     while the background image is loading */
     background-color: #B6C7CF;
+
+    padding-bottom: 5em; /*adjust for footer*/
 }
 
 a {
@@ -33,13 +21,6 @@ a {
 }
 
 footer {
-    position: absolute;
-    padding: 1em;
-    bottom: 0;
-    width: 100%;
-    height: 1em;
-    line-height: 1em;
-    color: #F5F5F5 !important;
     background-color: rgba(35, 56, 63, .2);
 }
 
@@ -112,5 +93,9 @@ textarea::placeholder {
 @media only screen and (min-width: 768px) {
     body {
         background-color: #B6C7CF;
+    }
+
+    footer {
+       margin-top: .5em; 
     }
 }

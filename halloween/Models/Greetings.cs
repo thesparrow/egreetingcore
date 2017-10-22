@@ -9,27 +9,30 @@ namespace halloween.Models
 {
     public class Greetings
     {
-        [DisplayName("Send To Name")]
-        [Display(Prompt = "First Name")] //this is the placeholder 
+        //[DisplayName("Send To")]
+        //[Display(Prompt = "eg Jane")] //this is the placeholder 
+        [Display(Name = "Send To", Prompt = "eg Jane")]
         [Required(ErrorMessage="This field is required.")]
         [StringLength(100, MinimumLength =3, ErrorMessage ="Name should be greater than 3, less than a 100.")]
         public string SendTo { get; set; }
 
-        [DisplayName("Send To Email")]
+        [Display(Name = "Send To Email", Prompt="example@email.com")]
         [Required(ErrorMessage = "This field is required.")]
         public string SendersEmail { get; set; }
 
-        [DisplayName("From")]
+
+        [Display(Name ="From", Prompt ="eg Best Friend")]
         public string FromName { get; set; }
 
-        [DisplayName("Email")]
+        [Display(Name ="From Email", Prompt ="example@email.com")]
+        [Required(ErrorMessage = "This field is required.")]
         public string FromEmail { get; set; }
 
-        [DisplayName("Subject")]
+        [Display(Name ="Subject", Prompt = "Greeting Subject")]
         [Required(ErrorMessage = "This field is required.")]
         public string Subject { get; set; }
 
-        [DisplayName("Personalized Message")]
+        [Display(Name = "Message", Prompt = "Write your message here!")]
         [Required(ErrorMessage = "This field is required.")]
         public string Message { get; set; }
 
