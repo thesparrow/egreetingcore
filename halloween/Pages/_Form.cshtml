@@ -1,10 +1,130 @@
 ﻿
 @model IndexModel
 
-<h1> Hello from Form !</h1>
-
-<div class="panel panel-default col-lg-8">
+<div class="panel panel-default col-lg-12">
     <div class="panel-body">
+        <!-- Form content goes here -->
+        <form method="post">
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <!-- SEND TO-->
+                    <div class="form-group">
+                        <label asp-for="bridgeGreetings.SendTo"></label>
+
+                        <input asp-for="bridgeGreetings.SendTo"
+                               type="text"
+                               class="form-control"
+                               maxlength="100">
+
+                        <!-- Server side validation-->
+                        <span asp-validation-for="bridgeGreetings.SendTo"
+                              class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+
+                        <label asp-for="bridgeGreetings.SendersEmail"></label>
+
+                        <input asp-for="bridgeGreetings.SendersEmail"
+                               type="email" class="form-control"
+                               maxlength="255" required>
+
+                        <!-- Server side validation-->
+                        <span asp-validation-for="bridgeGreetings.SendersEmail"
+                              class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+                <!--SEND FROM-->
+                <div class="col-lg-6 col-md-6">
+
+                    <!--Name-->
+                    <div class="form-group">
+                        <label asp-for="bridgeGreetings.FromName"></label>
+                        <input asp-for="bridgeGreetings.FromName"
+                               type="text" class="form-control"
+                               maxlength="100">
+                    </div>
+
+                    <!--Email-->
+                    <div class="form-group">
+                        <label asp-for="bridgeGreetings.FromEmail"></label>
+                        <input asp-for="bridgeGreetings.FromEmail"
+                               type="email" class="form-control"
+                               maxlength="255">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- SUBJECT + MESSAGE COMPOSITION-->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="form-group">
+                        <!-- Subject-->
+                        <label asp-for="bridgeGreetings.Subject"></label>
+                        <input asp-for="bridgeGreetings.Subject"
+                               type="text" class="form-control" maxlength="100">
+
+                        <div class="countdown"></div>
+
+                        <!-- Server side validation-->
+                        <span asp-validation-for="bridgeGreetings.Subject"
+                              class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Message-->
+                        <label asp-for="bridgeGreetings.Message"></label>
+                        <textarea asp-for="bridgeGreetings.Message"
+                                  class="form-control"
+                                  maxlength="500" rows="6"></textarea>
+                        <span class="countdown"></span>
+
+                        <!-- Server side validation-->
+                        <span asp-validation-for="bridgeGreetings.Message"
+                              class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- reCAPTCHA + TERMS-->
+            <div class="row">
+                <div class="col-lg-12 col-md-4">
+                    <div class="form-group">
+                        @Html.Partial("_reCAPTCHA")
+
+                        <!-- Terms and conditions-->
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            I Agree to <a href="#" data-toggle="modal" data-target="#readConditions"> terms and conditions</a>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!--PREVIEW -->
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-default btn-block">Preview</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+@*<div class="panel panel-default col-col-lg-5 col-lg-offset-6">
+    <div class="panel-body col-md-offset-3">
         <!-- Form content goes here -->
         <form method="post">
 
@@ -39,6 +159,8 @@
 
                 <!--SEND FROM-->
                 <div class="col-lg-6 col-md-4">
+
+                    <!--Name-->
                     <div class="form-group">
                         <label asp-for="bridgeGreetings.FromName"></label>
                         <input asp-for="bridgeGreetings.FromName"
@@ -46,6 +168,7 @@
                                maxlength="100">
                     </div>
 
+                    <!--Email-->
                     <div class="form-group">
                         <label asp-for="bridgeGreetings.FromEmail"></label>
                         <input asp-for="bridgeGreetings.FromEmail"
@@ -58,71 +181,67 @@
 
             <!-- SUBJECT + MESSAGE COMPOSITION-->
             <div class="row">
-                <div class="col-lg-6 col-md-8">
+                <div class="col-lg-12 col-md-8">
 
                     <div class="form-group">
+                        <!-- Subject-->
+                        <label asp-for="bridgeGreetings.Subject"></label>
+                        <input asp-for="bridgeGreetings.Subject"
+                               type="text" class="form-control" maxlength="100">
 
-                        <div class="col-10">
-                            <label asp-for="bridgeGreetings.Subject"></label>
-                            <input asp-for="bridgeGreetings.Subject"
-                                   type="text" class="form-control" maxlength="100">
+                        <div class="countdown"></div>
 
-                            <div class="countdown"></div>
+                        <!-- Server side validation-->
+                        <span asp-validation-for="bridgeGreetings.Subject"
+                              class="text-danger"></span>
+                    </div>                    
 
-                            <!-- Server side validation-->
-                            <span asp-validation-for="bridgeGreetings.Subject"
-                                  class="text-danger"></span>
+                    <div class="form-group">
+                        <!-- Message-->
+                        <label asp-for="bridgeGreetings.Message"></label>
+                        <textarea asp-for="bridgeGreetings.Message"
+                                  class="form-control"
+                                  maxlength="500" rows="6"></textarea>
+                        <span class="countdown"></span>
 
-                        </div>
+                        <!-- Server side validation-->
+                        <span asp-validation-for="bridgeGreetings.Message"
+                              class="text-danger"></span>
                     </div>
-
-                    <label asp-for="bridgeGreetings.Message"></label>
-                    <textarea asp-for="bridgeGreetings.Message"
-                              class="form-control"
-                              maxlength="500" rows="6"></textarea>
-                    <span class="countdown"></span>
-
-                    <!-- Server side validation-->
-                    <span asp-validation-for="bridgeGreetings.Message"
-                          class="text-danger"></span>
-
-                    <br>
 
                 </div>
             </div>
 
+            <!-- reCAPTCHA + TERMS-->
             <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    @Html.Partial("_reCAPTCHA")
-                </div>
-
-                <!--- terms and conditions-->
                 <div class="col-lg-6 col-md-4">
                     <div class="form-group">
-                        <label class="form-check-label">
+                        @Html.Partial("_reCAPTCHA")
+                        
+                        <!-- Terms and conditions-->
+                        <label class="form-check-label" style="margin-top: 15px;">
                             <input type="checkbox" class="form-check-input">
-                            Agree to <a href="#" data-toggle="modal" data-target="#readConditions"> terms and conditions</a>
+                            I Agree to <a href="#" data-toggle="modal" data-target="#readConditions"> terms and conditions</a>
                         </label>
                     </div>
-
                 </div>
+            </div>
 
-                <!--SUBMIT -->
-                <div class="col-lg-4 col-md-8">
+            <div class="row">
+                <!--PREVIEW -->
+                <div class="col-lg-2 col-md-8 col-sm-12">
                     <div class="form-group">
-                        <button class="btn btn-default" type="submit">Submit</button>
+                        <button type="button" class="btn btn-default btn-block">Preview</button>
                     </div>
                 </div>
             </div>
 
         </form>
     </div>
-</div>
+</div>*@
 
-<div class="row">
 
-  
-
+ 
     <!-- TERMS AND CONDITIONS MODAL BOX-->
     <!-- Modal -->
     <div id="readConditions" class="modal fade" role="dialog">
@@ -152,7 +271,7 @@
                     </p>
                     <p> You are granted limited license only for purposes of viewing the material contained on this Website. </p>
                     <p><b> 3. Restrictions</b></p>
-                    <p>
+                    <p>                        
                         You are specifically restricted from all of the following:
                         <ul>
                             <li> publishing any Website material in any other media;</li>
@@ -205,4 +324,3 @@
     </div>
 
 
-</div>

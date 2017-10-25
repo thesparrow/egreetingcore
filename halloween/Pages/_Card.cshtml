@@ -1,10 +1,46 @@
 ﻿
-@* PLACE THE IMAGE AND THE HEADER OF THE CARD *@
+@* CARD without the form *@
 
-<header> <h1>Send your friends a spooky e-Greeting!</h1></header>
 
-<div class="row">
-    <div class="hidden-lg col-sm-4 col-md-4">
-        <img class="img-responsive" src="~/images/twoQueens.jpg" />
-    </div>
+@*<div class="col-lg-12">
+    <img class="img-responsive" src="~/images/twoQueens.jpg" />
+</div>*@
+
+
+
+<style>
+
+    .img {
+        position: relative;
+        background: url("../images/twoQueens.jpg") no-repeat center 70px;
+        width: 564px;
+        height: 760px; /*original image 729 px*/
+        margin: 0 auto;
+        
+        transition: background-position 1s;
+    }
+        .img:hover {
+            background: url("../images/twoqueens_two.jpg") no-repeat bottom center;
+            background-position: 55% 5px, top top;
+        }
+    
+    .space {
+        /* Pass a comma separated list of backgrounds: */
+        background: url('https://demo.tutorialzine.com/2013/10/css3-features-you-can-finally-use/assets/img/rocket_big.png') no-repeat center 70px, url('https://demo.tutorialzine.com/2013/10/css3-features-you-can-finally-use/assets/img/space.jpg') no-repeat bottom center;
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        border-radius: 3px;
+        /* Animate the positions of both of the backgrounds */
+        transition: background-position 2s;
+    }
+
+        .space:hover {
+            /* The same goes for properties like background-position and repeat */
+            background-position: 35% 20px, top right;
+        }
+</style>
+
+<div class="col-lg-12">
+    <div class="img-responsive img"></div>
 </div>
