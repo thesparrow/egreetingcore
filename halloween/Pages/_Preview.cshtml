@@ -1,12 +1,11 @@
 ﻿
 @model IndexModel
 
-<h1> Hello From Preview - we are under construction!</h1>
+<h1> Verify your message</h1>
 
 <!-- 
     This is a read only page     
 -->
-
 
 <div class="panel panel-default col-lg-12">
     <div class="panel-body">
@@ -14,30 +13,14 @@
                 <div class="col-lg-6 col-md-6">
                     <!-- SEND TO-->
                     <div class="form-group">
-                        <label asp-for="bridgeGreetings.SendTo"></label>
-
-                        <span> </span>
-                        <input asp-for="bridgeGreetings.SendTo"
-                               type="text"
-                               class="form-control"
-                               maxlength="100">
-
-                        <!-- Server side validation-->
-                        <span asp-validation-for="bridgeGreetings.SendTo"
-                              class="text-danger"></span>
+                        <label asp-for="Greetings.SendTo"></label>
+                        <div>@Html.Raw(Model.Greetings.SendTo)</div>
                     </div>
 
                     <div class="form-group">
 
-                        <label asp-for="bridgeGreetings.SendersEmail"></label>
-
-                        <input asp-for="bridgeGreetings.SendersEmail"
-                               type="email" class="form-control"
-                               maxlength="255" required>
-
-                        <!-- Server side validation-->
-                        <span asp-validation-for="bridgeGreetings.SendersEmail"
-                              class="text-danger"></span>
+                        <label asp-for="Greetings.SendersEmail"></label>
+                        <div>@Html.Raw(Model.Greetings.SendersEmail)</div>
                     </div>
                 </div>
 
@@ -48,18 +31,14 @@
 
                     <!--Name-->
                     <div class="form-group">
-                        <label asp-for="bridgeGreetings.FromName"></label>
-                        <input asp-for="bridgeGreetings.FromName"
-                               type="text" class="form-control"
-                               maxlength="100">
+                        <label asp-for="Greetings.FromName"></label>
+                        <div>@Html.Raw(Model.Greetings.FromName)</div> 
                     </div>
 
                     <!--Email-->
                     <div class="form-group">
-                        <label asp-for="bridgeGreetings.FromEmail"></label>
-                        <input asp-for="bridgeGreetings.FromEmail"
-                               type="email" class="form-control"
-                               maxlength="255">
+                        <label asp-for="Greetings.FromEmail"></label>
+                        <div>@Html.Raw(Model.Greetings.FromEmail)</div>
                     </div>
                 </div>
             </div>
@@ -71,28 +50,14 @@
 
                     <div class="form-group">
                         <!-- Subject-->
-                        <label asp-for="bridgeGreetings.Subject"></label>
-                        <input asp-for="bridgeGreetings.Subject"
-                               type="text" class="form-control" maxlength="100">
-
-                        <div class="countdown"></div>
-
-                        <!-- Server side validation-->
-                        <span asp-validation-for="bridgeGreetings.Subject"
-                              class="text-danger"></span>
+                        <label asp-for="Greetings.Subject"></label>
+                        <div>@Html.Raw(Model.Greetings.Subject)</div>
                     </div>
 
                     <div class="form-group">
                         <!-- Message-->
-                        <label asp-for="bridgeGreetings.Message"></label>
-                        <textarea asp-for="bridgeGreetings.Message"
-                                  class="form-control"
-                                  maxlength="500" rows="6"></textarea>
-                        <span class="countdown"></span>                        
-
-                        <!-- Server side validation-->
-                        <span asp-validation-for="bridgeGreetings.Message"
-                              class="text-danger"></span>
+                        <label asp-for="Greetings.Message"></label>
+                        <div>@Html.Raw(Model.Greetings.Message)</div>
                     </div>
 
                 </div>

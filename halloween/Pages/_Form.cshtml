@@ -16,7 +16,8 @@
                         <input asp-for="bridgeGreetings.SendTo"
                                type="text"
                                class="form-control"
-                               maxlength="100">
+                               maxlength="100"
+                               required>
 
                         <!-- Server side validation-->
                         <span asp-validation-for="bridgeGreetings.SendTo"
@@ -56,6 +57,10 @@
                         <input asp-for="bridgeGreetings.FromEmail"
                                type="email" class="form-control"
                                maxlength="255">
+
+                        <!-- Server side validation-->
+                        <span asp-validation-for="bridgeGreetings.FromEmail"
+                              class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -102,9 +107,15 @@
 
                         <!-- Terms and conditions-->
                         <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input">
+                            <input asp-for="bridgeGreetings.TermsAndConditions"
+                                   type="checkbox" class="form-check-input">
                             I Agree to <a href="#" data-toggle="modal" data-target="#readConditions"> terms and conditions</a>
                         </label>
+
+                        <!-- Server side validation-->
+                        <span asp-validation-for="bridgeGreetings.TermsAndConditions"
+                              class="text-danger"></span>
+
                     </div>
                 </div>
             </div>
@@ -113,7 +124,7 @@
                 <!--PREVIEW -->
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="form-group">
-                        <button type="button" class="btn btn-default btn-block">Preview</button>
+                        <input type="submit" value="Preview" class="btn btn-default btn-block" />
                     </div>
                 </div>
             </div>
