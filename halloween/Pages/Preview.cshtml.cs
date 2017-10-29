@@ -1,14 +1,33 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using halloween.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace halloween.Pages
 {
     public class PreviewModel : PageModel
     {
-        public string Message { get; set; }
+        //BUILD A BRIDGE 
+        [BindProperty]
+        public Greetings Greetings { get; set; }
 
-        public void OnGet()
+        //Connection to db
+        private Database _dbContext { get; set; }
+
+        //hey, Create the database connection through the constructor
+        public PreviewModel(Database dbContext)
         {
-            Message = "Your application description page.";
+            _dbContext = dbContext;
+        }
+
+        public void OnGet(int ID=0)
+        {
+            if (ID > 0)
+            {
+                Greetings = _dbContext.Greetings.Find(ID); 
+            }
+            //GRAB the record from the database 
+            //EXTRACT from query string 
+           
         }
     }
 }

@@ -43,12 +43,12 @@ namespace halloween.Models
         [Range(typeof(bool), "true", "true", ErrorMessage = "You gotta tick the box!")]
         public bool TermsAndConditions { get; set; }
 
-        [Required(ErrorMessage = "This field is required.")]
+        //[Required(ErrorMessage = "This field is required.")]
         public string CreateDate { get; set; }
 
         public string reCaptcha { get; set; }
 
-        [Required(ErrorMessage = "This field is required.")]
+        //[Required(ErrorMessage = "This field is required.")]
         public string CreateIP { get; set; }
        
         public string SendDate { get; set; }

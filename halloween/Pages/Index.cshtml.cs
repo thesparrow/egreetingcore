@@ -30,7 +30,7 @@ namespace halloween.Pages
         //DEFAULT LOAD 
         public void OnGet()
         {
-            isPreviewPage = false;
+            //isPreviewPage = false;
         }
 
         //PREVIEW MODE 
@@ -43,18 +43,19 @@ namespace halloween.Pages
             {
                 if (ModelState.IsValid)
                 {
-                    //try
-                    //{
-
+                    try
+                    {
+                        //
+                        Greetings.Message = Greetings.Message.Replace("\n", "<br/>"); 
                         // ADD TO DATABASE through instance of our form
                         _dbContext.Greetings.Add(Greetings);
                         _dbContext.SaveChanges(); 
 
                         //REDIRECT to the page with a new operator (name/value pair)
                         return RedirectToPage("Preview", new { id = Greetings.ID} );
-                    //}
+                    }
 
-                    //catch { }
+                    catch { }
 
                 }
             }
