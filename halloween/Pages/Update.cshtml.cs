@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace halloween.Pages
 {
-    public class IndexModel : PageModel
+    public class UpdateModel : PageModel
     {
 
         //BUILD A BRIDGE 
@@ -22,7 +22,7 @@ namespace halloween.Pages
         public bool isPreviewPage { get; set; }
 
         //hey, Create the database connection through the constructor
-        public IndexModel(Database dbContext)
+        public UpdateModel(Database dbContext)
         {
             _dbContext = dbContext;
         }
