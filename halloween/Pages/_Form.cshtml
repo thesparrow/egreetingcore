@@ -11,29 +11,29 @@
                 <div class="col-lg-6 col-md-6">
                     <!-- SEND TO-->
                     <div class="form-group">
-                        <label asp-for="Greetings.SendTo"></label>
+                        <label asp-for="Greetings.ToName"></label>
 
-                        <input asp-for="Greetings.SendTo"
+                        <input asp-for="Greetings.ToName"
                                type="text"
                                class="form-control"
                                maxlength="100"
                                required>
 
                         <!-- Server side validation-->
-                        <span asp-validation-for="Greetings.SendTo"
+                        <span asp-validation-for="Greetings.ToName"
                               class="text-danger"></span>
                     </div>
 
                     <div class="form-group">
 
-                        <label asp-for="Greetings.SendersEmail"></label>
+                        <label asp-for="Greetings.ToEmail"></label>
 
-                        <input asp-for="Greetings.SendersEmail"
+                        <input asp-for="Greetings.ToEmail"
                                type="email" class="form-control"
                                maxlength="255" required>
 
                         <!-- Server side validation-->
-                        <span asp-validation-for="Greetings.SendersEmail"
+                        <span asp-validation-for="Greetings.ToEmail"
                               class="text-danger"></span>
                     </div>
                 </div>
