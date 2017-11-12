@@ -1,6 +1,6 @@
 ﻿
 @model IndexModel
-
+    
 <div class="panel panel-default col-lg-12">
     <div class="panel-body">
         <!-- Form content goes here -->
@@ -12,6 +12,7 @@
                     <div class="form-group">
                         <label asp-for="bridgeGreetings.SendTo"></label>
 
+                        <span asp-for="bridgeGreetings.SendTo">  </span>
                         <input asp-for="bridgeGreetings.SendTo"
                                type="text"
                                class="form-control"
