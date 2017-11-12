@@ -1,6 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using halloween.Models;
+using System.Threading.Tasks;
+using System;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace halloween.Pages
 {
@@ -9,53 +14,109 @@ namespace halloween.Pages
 
         //BUILD A BRIDGE 
         [BindProperty]
-        public Greetings bridgeGreetings { get; set; }
+        public Greetings Greetings { get; set; }
 
+        //Connection to db
+        private Database _dbContext { get; set; }
 
         public bool isPreviewPage { get; set; }
 
+        //hey, Create the database connection through the constructor
+        public IndexModel(Database dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
         //DEFAULT LOAD 
         public void OnGet()
         {
-            isPreviewPage = false; 
+            
         }
 
-        //PREVIEW MODE 
+        /**
+         * PREVIEW MODE
+         * 
+         *      On form submission: clean the form data, 
+         *      insert into db, redirect to Preview mode
+         */
         [HttpPost]
-        public void OnPost()
+        public async Task<IActionResult> OnPost()
         {
-            isPreviewPage = true;
+
+            if (await isValid())
+            {
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        // DB Related Customized values added with each record
+                        Greetings.CreateDate = DateTime.Now.ToString();
+                        Greetings.CreateIP = this.HttpContext.Connection.RemoteIpAddress.ToString();
+
+                        //Clean Data before insertion 
+                        Greetings.FromEmail = Greetings.FromEmail.ToLowerInvariant();
+                        Greetings.ToEmail = Greetings.ToEmail.ToLowerInvariant();
+
+                        // DB Related add record
+                        _dbContext.Greetings.Add(Greetings);
+                        _dbContext.SaveChanges(); 
+
+                        //REDIRECT to the page with a new operator (name/value pair)
+                        return RedirectToPage("Preview", new { id = Greetings.ID} );
+                    }
+
+                    catch { }
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("Greetings.reCaptcha", "Please verify you're not a robot!");
+            }
+
+            return Page();
+
         }
 
-      
-    
-        //public bool isPreviewPage { get; set; }
-        //public string validationMessage { get; set; }
+        /**
+         * reCAPTHCA SERVER SIDE VALIDATION 
+         * 
+         *      Create an HttpClient and store the the secret/response pair
+         *      Await for the sever to return a json obect 
+         * */
+        private async Task<bool> isValid()
+        {
+            var response = this.HttpContext.Request.Form["g-recaptcha-response"];
+            if (string.IsNullOrEmpty(response))
+                return false;
 
-        ////BINDING PROPERTIES
-        //[BindProperty]
-        //public ContactForm ContactForm { get; set; }
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var values = new Dictionary<string, string>();
+                    values.Add("secret", "6LfVpjEUAAAAAK0FdygAgh0P1gZ8QU24ildwT86r");
+                    values.Add("response", response);
+                    //values.Add("remoteip", this.HttpContext.Connection.RemoteIpAddress.ToString()); 
 
-        ////Default: FORM INTIALLY LOADS
-        //public void OnGet()
-        //{
-        //    isPreviewPage = false;
-        //    validationMessage = ""; 
-        //}
+                    var query = new FormUrlEncodedContent(values);
 
-        ////FORM IS SUBMITTED 
-        //public void OnPost()
-        //{
-        //    isPreviewPage = true;
+                    var post = client.PostAsync("https://www.google.com/recaptcha/api/siteverify", query);
 
-        //    if (string.IsNullOrEmpty(ContactForm.ToName))
-        //    {
-        //        validationMessage = "Please enter who you are sending to";
-        //        isPreviewPage = false; 
-        //    }
-        //}
+                    var json = await post.Result.Content.ReadAsStringAsync();
 
+                    if (json == null)
+                        return false;
+
+                    var results = JsonConvert.DeserializeObject<dynamic>(json);
+
+                    return results.success;
+                }
+
+            }
+            catch { }
+
+            return false;
+        }
 
     }
 }

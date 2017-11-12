@@ -1,0 +1,33 @@
+﻿@page
+@model PreviewModel
+
+<link rel="stylesheet" href="~/css/dark-theme.css">
+
+<div>
+
+    <div class="page-header">
+        <h1> Preview of your Halloween message </h1>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-7">
+            <div class="card"> @Html.Partial("_Card")</div>
+
+        </div>
+
+        <div class="col-lg-5">
+
+            @Html.Partial("_Preview")
+
+            @section Scripts {
+                <script src="http://www.google.com/recaptcha/api.js"></script>
+                <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+                <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+            }
+        </div>
+    </div>
+</div>
+
+
+
