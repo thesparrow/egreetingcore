@@ -19,6 +19,25 @@
         <div class="col-lg-5">
 
             @Html.Partial("_Preview")
+            
+            
+            <div class="row">
+                <form method="post">
+                    <!--SEND CARD -->
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+@*                        <div class="form-group">*@
+@*                            <input type="hidden" asp-for="Greetings.ID" />*@
+@*                            <input type="submit" class="btn btn-default btn-block" value="Send" />*@
+                        @*                        </div>*@
+                        
+                        <div class="btn-group">
+                            <a href="/update?id=@Model.Greetings.ID" class="btn btn-primary">Edit</a>
+                            <input type="submit" value="Send" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+
 
             @section Scripts {
                 <script src="http://www.google.com/recaptcha/api.js"></script>

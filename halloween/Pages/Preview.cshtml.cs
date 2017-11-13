@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
-using System.Net;
 using System.Net.Mail;
 
 namespace halloween.Pages
@@ -51,24 +50,23 @@ namespace halloween.Pages
                 {
                     // SEND 
                     // Create message
-                    MailMessage mailer = new MailMessage();
+                    var mailer = new MailMessage();
 
                     //add toEmail, FromEmail, Subject, Message
                     mailer.To.Add(new MailAddress(Greetings.ToEmail, Greetings.ToName));
                     mailer.From = new MailAddress(Greetings.FromEmail, Greetings.FromEmail); 
                     mailer.Subject = Greetings.Subject;
-                    mailer.Body = "";
+                    mailer.Body = Greetings.Message;
 
                     mailer.IsBodyHtml = true;
 
                     //SEND using SMTP {outgoing server} 
                     // POP incoming 
-                    using (var smtpClient = new SmtpClient())
+                    using (SmtpClient smtpClient = new SmtpClient())
                     {
-                        //SmtpClient client = new SmtpClient("mysmtpserver");
                         smtpClient.EnableSsl = true;
                         smtpClient.Host = "smtp.wowoco.org"; //CHANGE 
-                        smtpClient.Port = 25;  //
+                        smtpClient.Port = 2525;  //
                         smtpClient.UseDefaultCredentials = false;
                         smtpClient.Send(mailer); 
                     }
@@ -81,11 +79,13 @@ namespace halloween.Pages
                     _dbContext.Greetings.Update(Greetings);
                     _dbContext.SaveChanges();
 
-                    return RedirectToPage("ThankYou");
+                    return RedirectToPage("Complete");
                 }
-                catch
+                catch( Exception ex)
                 {
-                    ErrorMessage = "Not able to send your message at this time. Please try again later.";
+                    ///ErrorMessage = "Not able to send your message at this time. Please try again later.";
+                    ErrorMessage = ex.ToString(); 
+
                 }
             }
             return Page();
