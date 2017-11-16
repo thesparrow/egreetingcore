@@ -65,7 +65,10 @@ namespace halloween.Pages
                         return RedirectToPage("Preview", new { id = Greetings.ID} );
                     }
 
-                    catch { }
+                    catch(Exception ex) {
+                        Console.WriteLine(ex); 
+                        return RedirectToPage("Index");
+                    }
                 }
             }
             else

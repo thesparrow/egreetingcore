@@ -33,7 +33,6 @@ namespace halloween.Pages
             {
                 Greetings = _dbContext.Greetings.Find(ID);
             }
-
         }
 
         /** 
@@ -64,9 +63,9 @@ namespace halloween.Pages
                     // POP incoming 
                     using (SmtpClient smtpClient = new SmtpClient())
                     {
-                        smtpClient.EnableSsl = true;
-                        smtpClient.Host = "smtp.wowoco.org"; //CHANGE 
-                        smtpClient.Port = 2525;  //
+                        smtpClient.EnableSsl = false;
+                        smtpClient.Host = "smtp18.wowoco.org"; //"mail.devanna.x10host.com";  
+                        smtpClient.Port = 2525; //2525 
                         smtpClient.UseDefaultCredentials = false;
                         smtpClient.Send(mailer); 
                     }
