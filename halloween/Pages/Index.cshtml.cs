@@ -6,6 +6,7 @@ using System;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 
 namespace halloween.Pages
 {
@@ -20,6 +21,8 @@ namespace halloween.Pages
         private Database _dbContext { get; set; }
 
         public bool isPreviewPage { get; set; }
+
+        private IConfiguration _configuration { get; set; }
 
         //hey, Create the database connection through the constructor
         public IndexModel(Database dbContext)

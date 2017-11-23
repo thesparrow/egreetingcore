@@ -55,7 +55,8 @@ namespace halloween.Pages
                     mailer.To.Add(new MailAddress(Greetings.ToEmail, Greetings.ToName));
                     mailer.From = new MailAddress(Greetings.FromEmail, Greetings.FromEmail); 
                     mailer.Subject = Greetings.Subject;
-                    mailer.Body = Greetings.Message;
+                    mailer.Body = Greetings.FromName + " has a greeting for you."+
+                        "Visit http://anna.wowoco.org/read/" + Greetings.ID;
 
                     mailer.IsBodyHtml = true;
 
