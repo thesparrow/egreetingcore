@@ -1,6 +1,7 @@
 ﻿using halloween.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Net.Mail;
 
@@ -20,7 +21,10 @@ namespace halloween.Pages
         public PreviewModel(Database dbContext)
         {
             _dbContext = dbContext;
-        }     
+        }
+
+
+        private IConfiguration _configruation {get; set;} 
 
         /**
          * @param: ID of Contacts  

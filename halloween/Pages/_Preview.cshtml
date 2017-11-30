@@ -1,4 +1,4 @@
-﻿@model PreviewModel
+﻿@model halloween.Models.Greetings
 <!--
     This is a read only page
 -->
@@ -9,14 +9,14 @@
             <div class="col-lg-6 col-md-6">
                 <!-- SEND TO-->
                 <div class="form-group">
-                    <label asp-for="Greetings.ToName"></label>
-                    <div>@Html.Raw(Model.Greetings.ToName)</div>
+                    <label asp-for="@Model.ToName"></label>
+                    <div>@Html.Raw(Model.ToName)</div>
                 </div>
 
                 <div class="form-group">
 
-                    <label asp-for="Greetings.ToEmail"></label>
-                    <div>@Html.Raw(Model.Greetings.ToEmail)</div>
+                    <label asp-for="@Model.ToEmail"></label>
+                    <div>@Html.Raw(Model.ToEmail)</div>
                 </div>
             </div>
 
@@ -25,14 +25,14 @@
 
                 <!--Name-->
                 <div class="form-group">
-                    <label asp-for="Greetings.FromName"></label>
-                    <div>@Html.Raw(Model.Greetings.FromName)</div>
+                    <label asp-for="@Model.FromName"></label>
+                    <div>@Html.Raw(Model.FromName)</div>
                 </div>
 
                 <!--Email-->
                 <div class="form-group">
-                    <label asp-for="Greetings.FromEmail"></label>
-                    <div>@Html.Raw(Model.Greetings.FromEmail)</div>
+                    <label asp-for="@Model.FromEmail"></label>
+                    <div>@Html.Raw(Model.FromEmail)</div>
                 </div>
             </div>
         </div>
@@ -43,20 +43,18 @@
 
                 <div class="form-group">
                     <!-- Subject-->
-                    <label asp-for="Greetings.Subject"></label>
-                    <div>@Html.Raw(Model.Greetings.Subject)</div>
+                    <label asp-for="@Model.Subject"></label>
+                    <div>@Html.Raw(Model.Subject)</div>
                 </div>
 
                 <div class="form-group">
                     <!-- Message-->
-                    <label asp-for="Greetings.Message"></label>
-                    <div>@Html.Raw(Model.Greetings.Message)</div>
+                    <label asp-for="@Model.Message"></label>
+                    <div>@Html.Raw(Model.Message)</div>
                 </div>
 
             </div>
         </div>
-
-        <div class="has-error">@Model.ErrorMessage</div>
       
     </div>
 </div>
