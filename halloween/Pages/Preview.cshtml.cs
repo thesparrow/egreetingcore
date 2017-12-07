@@ -17,14 +17,15 @@ namespace halloween.Pages
         //Connection to db
         private Database _dbContext { get; set; }
 
+        private IConfiguration _configruation { get; set; }
+
         //Create the database connection through the constructor
-        public PreviewModel(Database dbContext)
+        public PreviewModel(Database dbContext, IConfiguration configuration)
         {
             _dbContext = dbContext;
+            _configruation = configuration; 
         }
-
-
-        private IConfiguration _configruation {get; set;} 
+       
 
         /**
          * @param: ID of Contacts  
@@ -68,11 +69,10 @@ namespace halloween.Pages
                     // POP incoming 
                     using (SmtpClient smtpClient = new SmtpClient())
                     {
-                        smtpClient.EnableSsl = false;
-                        //smtpClient.Host = _configruation["Smtp:Host"]; //"mail.devanna.x10host.com";  
-                        smtpClient.Host = "smtp18.wowoco.org"; //"mail.devanna.x10host.com";  
-                        smtpClient.Port = 2525; //2525 
-                        smtpClient.UseDefaultCredentials = false;
+                        smtpClient.EnableSsl = Boolean.Parse(_configruation["SMTP:EnableSsl"]); 
+                        smtpClient.Host = _configruation["SMTP:Host"];   
+                        smtpClient.Port = Int32.Parse(_configruation["SMTP:Port"]);
+                        smtpClient.UseDefaultCredentials = Boolean.Parse(_configruation["SMTP:UseDefaultCredentials"]);
                         smtpClient.Send(mailer); 
                     }
 

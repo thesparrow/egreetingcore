@@ -25,16 +25,14 @@ namespace halloween.Pages
         private IConfiguration _configuration { get; set; }
 
         //hey, Create the database connection through the constructor
-        public IndexModel(Database dbContext)
+        public IndexModel(Database dbContext, IConfiguration configuration)
         {
             _dbContext = dbContext;
+            _configuration = configuration; 
         }
 
         //DEFAULT LOAD 
-        public void OnGet()
-        {
-            
-        }
+        public void OnGet(){}
 
         /**
          * PREVIEW MODE
@@ -100,7 +98,9 @@ namespace halloween.Pages
                 using (var client = new HttpClient())
                 {
                     var values = new Dictionary<string, string>();
-                    values.Add("secret", "6LfVpjEUAAAAAK0FdygAgh0P1gZ8QU24ildwT86r");
+                    //values.Add("secret", "6LfVpjEUAAAAAK0FdygAgh0P1gZ8QU24ildwT86r");
+                    values.Add("secret", _configuration["ReCaptcha:PrivateKey"]);
+
                     values.Add("response", response);
                     //values.Add("remoteip", this.HttpContext.Connection.RemoteIpAddress.ToString()); 
 

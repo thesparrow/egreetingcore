@@ -265,3 +265,8 @@ __pycache__/
 #project config files
 /data/
 /halloween/Properties/PublishProfiles
+**/appsettings.json
+**/appsettings.development.json 
+/halloween/db
+/halloween/egreeting.db
+/wwwroot/lib/
