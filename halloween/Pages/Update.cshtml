@@ -1,5 +1,6 @@
 ﻿@page
-@model UpdateModel
+
+@model halloween.Pages.UpdateModel
 
 <link rel="stylesheet" href="~/css/dark-theme.css">
 
@@ -11,14 +12,12 @@
 
     <form method="post">
         <div class="row">
-            <div class="col-lg-7">
-                <div class="card">@Html.Partial("_Card")</div>
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                @Html.Partial("_Card")       
             </div>
 
-            <div class="col-lg-5">
-
+            <div class="col-lg-5 col-md-5 col-sm-12">
                 @Html.Partial("_Form", Model.Greetings)
-          
             </div>
         </div>
     </form>

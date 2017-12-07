@@ -1,0 +1,29 @@
+﻿@model halloween.Models.Greetings
+<!--
+    This is a read only page
+-->
+
+<div class="panel panel-default col-lg-12">
+    <div class="panel-body">
+      
+        <!-- SUBJECT + MESSAGE COMPOSITION-->
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="form-group">
+                    <!-- Subject-->
+                    <label class="boldType" asp-for="@Model.Subject"></label>
+                    <div class="content">@Html.Raw(Model.Subject)</div>
+                </div>
+
+                <div class="form-group">
+                    <!-- Message-->
+                    <label class="boldType" asp-for="@Model.Message"></label>
+                    <div class="content">@Html.Raw(Model.Message)</div>
+                </div>
+
+            </div>
+        </div>
+      
+    </div>
+</div>

@@ -69,6 +69,7 @@ namespace halloween.Pages
                     using (SmtpClient smtpClient = new SmtpClient())
                     {
                         smtpClient.EnableSsl = false;
+                        //smtpClient.Host = _configruation["Smtp:Host"]; //"mail.devanna.x10host.com";  
                         smtpClient.Host = "smtp18.wowoco.org"; //"mail.devanna.x10host.com";  
                         smtpClient.Port = 2525; //2525 
                         smtpClient.UseDefaultCredentials = false;
@@ -85,10 +86,9 @@ namespace halloween.Pages
 
                     return RedirectToPage("Complete");
                 }
-                catch( Exception ex)
-                {
-                    ///ErrorMessage = "Not able to send your message at this time. Please try again later.";
-                    ErrorMessage = ex.ToString(); 
+                catch{
+                    ErrorMessage = "Not able to send your message at this time. Please try again later.";
+                    //ErrorMessage = ex.ToString(); 
 
                 }
             }

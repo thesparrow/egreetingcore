@@ -22,15 +22,15 @@ namespace halloween.Pages
         }
 
         /**
-         * @param: ID of Contacts  
+         * @param: id of Contacts  
          *      Extract from DB
          * 
          */
-        public IActionResult OnGet(int ID = 0)
+        public IActionResult OnGet(int id = 0)
         {
-            if (ID > 0)
+            if (id > 0)
             {
-                Greetings = _dbContext.Greetings.Find(ID);
+                Greetings = _dbContext.Greetings.Find(id);
                 return Page();
             }
 
@@ -43,7 +43,7 @@ namespace halloween.Pages
 
         public string ErrorMessage { get; set; }
         /** 
-         *  @param: Contact ID 
+         *  @param: Contact id 
          *      Submit form
          */
         public IActionResult OnPost()

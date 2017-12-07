@@ -1,28 +1,31 @@
 ﻿@page "{ID?}"
-@model ReadModel
+
+@model halloween.Pages.ReadModel
 
 <link rel="stylesheet" href="~/css/dark-theme.css">
 
-@{ 
-    ViewBag.cssPage = "read"; 
+@{
+    ViewBag.cssPage = "read";
 }
 
 <div>
 
     <div class="page-header">
-        <h1> Preview of your Halloween message </h1>
+        <h1>Happy HalloWeen! </h1>
+        <h3> @Model.Greetings.FromName sent you a card! </h3>
     </div>
 
 
     <div class="row">
-        <div class="col-lg-7">
-            <div class="card"> @Html.Partial("_Card", Model.Greetings)</div>
+        <div class="col-lg-7 col-md-6 col-sm-12">
+            @Html.Partial("_Card")
         </div>
 
-        <div class="col-lg-5">
-            @Html.Partial("_Preview", Model.Greetings)
+        <div class="col-lg-5 col-md-5 col-sm-12">
+            @Html.Partial("_Read", Model.Greetings)
         </div>
-        <div class="panel panel-footer">
+
+        <div class="btn-group">
             <a href="~/" class="btn btn-primary">Send a Message</a>
         </div>
     </div>

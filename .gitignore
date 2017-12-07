@@ -264,3 +264,4 @@ __pycache__/
 
 #project config files
 /data/
+/halloween/Properties/PublishProfiles

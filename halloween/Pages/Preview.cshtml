@@ -1,5 +1,5 @@
 ﻿@page
-@model PreviewModel
+@model halloween.Pages.PreviewModel
 
 <link rel="stylesheet" href="~/css/dark-theme.css">
 
@@ -11,14 +11,14 @@
 
 
     <div class="row">
-        <div class="col-lg-7">
+        <div class="col-lg-7 col-md-6 col-sm-4">
             <div class="card"> @Html.Partial("_Card")</div>
 
         </div>
 
         <div class="col-lg-5">
 
-            @Html.Partial("_Preview")
+            @Html.Partial("_Preview", Model.Greetings)
             
             
             <div class="row">

@@ -21,11 +21,6 @@ namespace halloween.Pages
             _dbContext = dbContext;
         }
 
-        /**
-         * @param: ID of Contacts  
-         *      Extract from DB
-         * 
-         */
         public IActionResult OnGet(int id = 0)
         {
             if (id > 0)

@@ -1,5 +1,7 @@
 ﻿@page
-@model IndexModel
+@model halloween.Pages.IndexModel
+
+
 @{
     ViewData["Title"] = "Halloween E-Greeting";
 }
@@ -7,25 +9,20 @@
 @* use a ViewBag *@
 <link rel="stylesheet" href="~/css/dark-theme.css">
 
-<div>
-
     <div class="page-header">
         <h1> Let your friends know - they are never alone this Halloween... </h1>
     </div>
 
 
     <div class="row">
-        <div class="col-lg-7">
-            <div class="card"> @Html.Partial("_Card")</div>
+        <div class="col-lg-7 col-md-6 col-sm-12">
+            @Html.Partial("_Card")       
         </div>
 
-        <div class="col-lg-5">
-
-            @Html.Partial("_Form")
-
+        <div class="col-lg-5 col-md-5 col-sm-12">
+            @Html.Partial("_Form", Model.Greetings)
         </div>
     </div>
-</div>
 
 
 @section Scripts {
