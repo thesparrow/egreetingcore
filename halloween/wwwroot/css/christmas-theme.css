@@ -43,8 +43,24 @@ a {
     font-weight: bold;
 }
 
+/* This is portrait style */
+@media (min-width: 768px) and (max-width: 1024px) {
+    body {
+        padding-bottom: 4em; /*adjust for footer*/
+    }
 
-/**    
-    ****** BACKGROUND IMAGE ********
+    .col-lg-5 {
+        padding-top: 2em;
+    }
 
- **/
+    .img-rounded {
+        margin-left: .5em; 
+        margin-bottom: .5em; 
+    }
+
+    .navbar-default {
+        background-color: transparent;
+        font-size: .9em;
+        margin-top: 10em; 
+    }
+}

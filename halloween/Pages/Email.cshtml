@@ -1,0 +1,36 @@
+﻿@page
+@model halloween.Pages.EmailModel
+
+
+@{
+    Layout = null;
+}
+
+<center>
+    <a href="~/read?id=@Model.Greetings.ID">
+
+        <div> HAVING TROUBLE READING THIS EMAIL? CLICK HERE.</div>
+        <img src="~/images/beautiful_merry_christmas.gif"
+             alt="Merry Christmas!Please set your email to display the image."
+             title="Click to preview your greeting" />
+    </a>
+
+    <div>
+        @Model.Greetings.Message
+
+        <br /> <br />
+
+        From,
+        <br />
+
+        @Model.Greetings.FromName (@Model.Greetings.FromEmail)
+
+    </div>
+
+
+
+    <div style="margin-top:50px; font-size:10px;">
+        This email was sent to @Model.Greetings.ToEmail from @Model.Greetings.FromName
+    </div>
+
+</center>
