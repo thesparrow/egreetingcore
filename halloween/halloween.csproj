@@ -3,6 +3,10 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Remove="Properties\PublishProfiles\CustomProfile1.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
   </ItemGroup>
@@ -11,5 +15,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Pages\_Preview.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 </Project>
