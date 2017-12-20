@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Net;
 using System.Net.Mail;
 
 namespace halloween.Pages
@@ -50,6 +51,8 @@ namespace halloween.Pages
             {
                 Greetings = _dbContext.Greetings.Find(ID);
 
+                var emailUrl = "http://anna.wowoco.org/emai;?id=" + Greetings.ID;
+
                 try
                 {
                     // SEND 
@@ -60,8 +63,11 @@ namespace halloween.Pages
                     mailer.To.Add(new MailAddress(Greetings.ToEmail, Greetings.ToName));
                     mailer.From = new MailAddress(Greetings.FromEmail, Greetings.FromEmail); 
                     mailer.Subject = Greetings.Subject;
-                    mailer.Body = Greetings.FromName + " has a greeting for you."+
-                        "Visit http://anna.wowoco.org/read/" + Greetings.ID;
+
+                    using (WebClient client = new WebClient())
+                    {
+                        mailer.Body = client.DownloadString(new Uri(emailUrl)); 
+                    }
 
                     mailer.IsBodyHtml = true;
 
