@@ -1,7 +1,6 @@
 ﻿using halloween.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Configuration;
 
 
 namespace halloween.Pages
@@ -21,11 +20,12 @@ namespace halloween.Pages
             _dbContext = dbContext;
         }
 
-        public IActionResult OnGet(int id = 0)
+        public IActionResult OnGet(int ID = 0)
         {
-            if (id > 0)
+
+            if (ID > 0)
             {
-                Greetings = _dbContext.Greetings.Find(id);
+                Greetings = _dbContext.Greetings.Find(ID);
             }
             
             if(Greetings == null)

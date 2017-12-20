@@ -51,7 +51,7 @@ namespace halloween.Pages
             {
                 Greetings = _dbContext.Greetings.Find(ID);
 
-                var emailUrl = "http://anna.wowoco.org/emai;?id=" + Greetings.ID;
+                var emailUrl = "http://anna.wowoco.org/read/" + Greetings.ID;
 
                 try
                 {
