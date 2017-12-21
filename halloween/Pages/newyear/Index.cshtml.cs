@@ -8,9 +8,9 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 
-namespace halloween.Pages
+namespace halloween.Pages.newyear
 {
-    public class NewYearModel : PageModel
+    public class IndexModel: PageModel
     {
 
         //BUILD A BRIDGE 
@@ -25,7 +25,7 @@ namespace halloween.Pages
         private IConfiguration _configuration { get; set; }
 
         //hey, Create the database connection through the constructor
-        public NewYearModel(Database dbContext)
+        public IndexModel(Database dbContext)
         {
             _dbContext = dbContext;
         }
