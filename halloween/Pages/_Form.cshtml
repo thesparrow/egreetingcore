@@ -1,7 +1,6 @@
 ﻿@model halloween.Models.Greetings
     
-<div class="panel panel-default col-lg-12">
-    <div class="panel-body">
+
         <!-- Form content goes here -->
         <form method="post">
            
@@ -102,13 +101,6 @@
                 <div class="col-lg-12 col-md-4">
                     <div class="form-group">
                         @Html.Partial("_reCAPTCHA")
-                        @*<div class="g-recaptcha"
-                             data-theme="light"
-                             data-sitekey="6LfVpjEUAAAAAJrhQVzVB5M1WAX07P5spNv9OKda">
-                        </div>
-
-                        <span asp-validation-for="@Model.reCaptcha"
-                              class="text-danger"></span>*@
 
                         <!-- Terms and conditions-->
                         <label class="form-check-label">
@@ -135,8 +127,6 @@
             </div>
 
         </form>
-    </div>
-</div>
  
     <!-- TERMS AND CONDITIONS MODAL BOX-->
     <!-- Modal -->

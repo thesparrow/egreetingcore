@@ -1,33 +1,32 @@
 ﻿@page
-@model halloween.Pages.IndexModel
+@model halloween.Pages.ChristmasModel
 
 
 @{
-    ViewBag.theme = "halloween";
+    ViewBag.theme = "christmas";
     ViewBag.dimension = "portrait";
 
-    ViewBag.meta_title = "Let your friends know - they are never alone this Halloween...";
+    ViewBag.meta_title = "Wish your friends a warm Christmas.";
     ViewBag.meta_desc = "Create your greeting now.";
-    ViewBag.meta_image = "/images/twoQueens.jpg";
-    ViewBag.meta_keyword = "halloween";
+    ViewBag.meta_image = "/images/beautiful_merry_christmas.gif";
+    ViewBag.meta_keyword = "christmas";
 
 }
+
+<link rel="stylesheet" href="~/css/christmas-theme.css">
 
 <div class="container">
     <div class="row">
         <div class="col-sm-6 text-center">
-            @Html.Partial("_Card")
+            <img class="img-responsive img-rounded bottom" src="@ViewBag.meta_image" 
+                        alt="christmas image" />
         </div>
         <div class="col-sm-6 text-center">
-
             @Html.Partial("_Form", Model.Greetings)
         </div>
     </div>
 
 </div>
-
-
-
 
 @section Scripts {
     <script src="http://www.google.com/recaptcha/api.js"></script>

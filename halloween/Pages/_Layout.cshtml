@@ -1,23 +1,58 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    var meta_url = "http://anna.wowoco.org";
+    var meta_image = meta_url + ViewBag.meta_image; 
+    var meta_title = "My e-Greeting " + ViewBag.meta_title;
+    var meta_desc = ViewBag.meta_desc;
+    var meta_keyword = "e-greeting, wowoco, design, digital card, " + ViewBag.meta_keyword;
+}
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Halloween Greeting</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>@meta_title</title>
+    <meta name="description" content="@meta_desc">
+    <meta name="keywords" content="@meta_keyword">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="copyright" content="" />
+    <meta name="designer" content="" />
+
+    <!-- FACEBOOK -->
+    <link rel="canonical" href="" />
+    <meta property="fb:app_id" content="" />
+    <meta property="og:title" content="@meta_title" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="@meta_image" />
+    <meta property="og:url" content="@meta_url" />
+    <meta property="og:description" content="@meta_desc" />
+    <title>@ViewBag.meta_title</title>
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="@meta_title" />
+    <meta name="twitter:description" content="@meta_desc" />
+    <meta name="twitter:image" content="@meta_image" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  
-    <link href="~/css/site.css" rel="stylesheet" />
-    <!--<link href="~/css/dark-theme.css" rel="stylesheet" /> --> <!-- Dominant theme-->
-
 
     <!--FONTS-->
-    <link href="https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro|IM+Fell+DW+Pica+SC" rel="stylesheet">
+
+    <link href="~/css/site.css" rel="stylesheet" />
 
 </head>
-<body>
+<body class="@ViewBag.theme @ViewBag.dimension">
     <div class="container">
+        <div class="page-header">
+            <h1>@ViewBag.meta_title</h1>
+        </div>
+
         @RenderBody()
+
     </div>
     <footer class="navbar-default navbar-fixed-bottom">
         <div class="container">

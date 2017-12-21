@@ -1,0 +1,52 @@
+﻿@page
+@model halloween.Pages.PreviewModel
+
+<link rel="stylesheet" href="~/css/dark-theme.css">
+
+<div>
+
+    <div class="page-header">
+        <h1> Preview of your Halloween message </h1>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-7 col-md-6 col-sm-4">
+            <div class="card"> @Html.Partial("_Card")</div>
+
+        </div>
+
+        <div class="col-lg-5">
+
+            @Html.Partial("_Preview", Model.Greetings)
+            
+            
+            <div class="row">
+                <form method="post">
+                    <!--SEND CARD -->
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+@*                        <div class="form-group">*@
+@*                            <input type="hidden" asp-for="Greetings.ID" />*@
+@*                            <input type="submit" class="btn btn-default btn-block" value="Send" />*@
+                        @*                        </div>*@
+                        
+                        <div class="btn-group">
+                            <a href="/Update?id=@Model.Greetings.ID" class="btn btn-primary">Edit</a>
+                            <input type="submit" value="Send" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            @section Scripts {
+                <script src="http://www.google.com/recaptcha/api.js"></script>
+                <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+                <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+            }
+        </div>
+    </div>
+</div>
+
+
+

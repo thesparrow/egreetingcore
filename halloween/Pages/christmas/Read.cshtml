@@ -1,0 +1,31 @@
+﻿@page "{ID?}"
+
+@using halloween.Pages
+@model halloween.Pages.ReadModel
+
+<link rel="stylesheet" href="~/css/dark-theme.css">
+
+@{
+    ViewBag.cssPage = "read";
+}
+
+
+<div class="panel panel-default">
+    <div class="panel-heading ">
+        <h3><span id="name">@Model.Greetings.FromName</span> sent you a card!</h3>
+    </div>
+    
+    <div class="panel-image hide-panel-body">
+        @Html.Partial("_Card")
+    </div>
+    <div class="panel-body">
+        <h4>Happy HalloWeen.</h4>
+        @Html.Partial("_Read", Model.Greetings)
+    </div>
+    <div class="panel-footer text-center">
+        <a href="~/" class="btn btn-primary">Send A Greeting</a>
+    </div>
+</div>
+
+
+

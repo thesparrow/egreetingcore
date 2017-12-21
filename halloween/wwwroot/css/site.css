@@ -10,6 +10,18 @@ body {
     color: #000000;
     background: #fff;
 }
+    body.christmas {
+        font-family: 'learningcurve';
+        font-size: 24px;
+        font-weight: bold;
+        background-color: #9bb6d3;
+    }
+
+    body.newyear {
+        font-size: 12px;
+        background: #fff;
+        color: #A9A9A9;
+    }
 
 a {
     color: #ff6347;

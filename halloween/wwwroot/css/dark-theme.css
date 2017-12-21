@@ -1,10 +1,10 @@
 ﻿
 body {
-    font-family: 'IM Fell DW Pica SC', serif;
+    font-family: 'Source Serif Pro', serif;
     font-size: 15px;
     font-weight: lighter;
     color: #353D40;
-    background-color: #B6C7CF;
+    background: #B6C7CF;
     padding-bottom: 4em; /*adjust for footer*/
 }
 
@@ -27,7 +27,8 @@ footer {
     background-color: #000 !important;
 }
 
-h1 {
+
+.page-header {
     font-family: 'IM Fell DW Pica SC', serif;
     padding: 1em;
     color: #000;
@@ -88,27 +89,37 @@ textarea::placeholder {
  **/
 
 .card {
-    
-    position: relative;
-    width: 564px;
-    height: 760px; /*original image 729 px*/
-    margin: 0 auto;
-    
+    background: url(../images/twoQueens_two.jpg) no-repeat top left;
+    background-size: cover; 
+    text-align: center;
+    padding:0;
+    margin:0;
+    max-width: 564px; 
 }
-    .card .img {
-        position: absolute;
-        left: 0;
+
+    .card img { 
+        padding:0;
+        margin:0;
         -webkit-transition: opacity 1s ease-in-out;
         -moz-transition: opacity 1s ease-in-out;
         -o-transition: opacity 1s ease-in-out;
         transition: opacity 1s ease-in-out;
+        animation-name: FadeInOut;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-duration: 30s;
+        animation-direction: alternate;
     }
 
+@media screen and (min-width:1200px){
+    .card {
+        background-size: auto;
+    }
+}
 /**    
     ****** Animations ********
 
  **/
-
 @keyframes FadeInOut {
     0% {
         opacity: 1;
@@ -127,14 +138,6 @@ textarea::placeholder {
     }
 }
 
-
-.img.top {
-    animation-name: FadeInOut;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 30s;
-    animation-direction: alternate;
-}
 
 
 label.boldType {

@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace halloween.Pages
 {
-    public class ChristmasModel : PageModel
+    public class NewYearModel : PageModel
     {
 
         //BUILD A BRIDGE 
@@ -25,7 +25,7 @@ namespace halloween.Pages
         private IConfiguration _configuration { get; set; }
 
         //hey, Create the database connection through the constructor
-        public ChristmasModel(Database dbContext)
+        public NewYearModel(Database dbContext)
         {
             _dbContext = dbContext;
         }
