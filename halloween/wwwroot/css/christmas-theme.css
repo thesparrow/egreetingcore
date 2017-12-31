@@ -1,66 +1,12 @@
 ﻿
-@font-face {
-    font-family: 'learningcurve';
-    src: url('../fonts/learningcurve.ttf') format('truetype');
-}
-
-body {
-    font-family: 'learningcurve';
-    font-size: 24px;
-    font-weight: bold;
-    background-color: #9bb6d3;
-}
-
-
-html,
-body {
-    height: 100%;
-}
-
-/**    
-    ****** TEXT ********
-
- **/
-
-a {
-    color: #caccc1;
-}
-
-    a:link,
-    a:visited,
-    a:active,
-    a:hover a:focus {
-        color: #1b3338;
-    }
-
-
-/**    
-    ****** User Errors ********
-
- **/
-.text-danger {
-    color: rgb(191, 135, 76);
-    font-weight: bold;
-}
-
 /* This is portrait style */
-@media (min-width: 768px) and (max-width: 1024px) {
-    body {
-        padding-bottom: 4em; /*adjust for footer*/
-    }
+@media (max-width: 734px) {
 
     .col-lg-5 {
         padding-top: 2em;
     }
 
-    .img-rounded {
-        margin-left: .5em; 
-        margin-bottom: .5em; 
-    }
-
-    .navbar-default {
-        background-color: transparent;
-        font-size: .9em;
-        margin-top: 10em; 
+    .img-rounded {  
+       margin-bottom: 2em; 
     }
 }

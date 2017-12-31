@@ -1,19 +1,28 @@
+@font-face {
+    font-family: 'learningcurve';
+    src: url('../fonts/learningcurve.ttf') format('truetype');
+}
+
+
 /**    
     ****** General Theme ********
-        Backbone theme
 
  **/
 
 body {
-    font-size: 14px;
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Source Serif Pro', serif;
+    font-size: 16px;
     color: #000000;
     background: #fff;
+    padding-bottom: 6em;
 }
+
+    body.halloween {
+        color: #353D40;
+        background: #B6C7CF;
+    }
+
     body.christmas {
-        font-family: 'learningcurve';
-        font-size: 24px;
-        font-weight: bold;
         background-color: #9bb6d3;
     }
 
@@ -23,16 +32,143 @@ body {
         color: #A9A9A9;
     }
 
+
+
 a {
-    color: #ff6347;
+    color: navy;
 }
 
-    a:hover,
-    a:focus {
-        color: #ff6347;
-        text-decoration: underline;
+    
+
+.christmas a{
+    color: #F1DAC4;
+}
+
+    .christmas a:link,
+    .christmas a:visited,
+    .christmas a:active,
+    .christmas a:hover .christmas a:focus {
+        color: #F1DAC4;
+    }
+
+
+/**    
+    ****** HEADER THEME ********
+
+ **/
+
+h1 {
+    text-align: center; 
+    letter-spacing: .1em;
+}
+
+    .halloween h1 {
+        font-family: 'IM Fell DW Pica SC', serif;     
+        color: #000;
+    }
+
+    .christmas h1 {
+        color: #977a63;
+        font-family: 'learningcurve';
+        font-size: 56px;
         font-weight: bold;
-        font-size: 1em;
+        padding-right: 10px; 
+    }
+
+/**    
+    ****** FORM THEME ********
+
+ **/
+
+.halloween .form-control:focus {
+    border-color: #000; 
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0, 0.6);
+}
+
+.christmas .form-control:focus {
+    border-color: rgb(151, 122, 99);
+    -webkit-box-shadow: inset 0 1px 1px rgba(151, 122, 99,.075), 0 0 8px rgba(151, 122, 99, 0.6);
+    box-shadow: inset 0 1px 1px rgba(151, 122, 99,.075), 0 0 8px rgba(151, 122, 99, 0.6);
+}
+
+.christmas label {
+    color: #474973;
+    font-weight: bold;
+    text-align: left;
+}
+
+/**    
+    ****** INVALID INPUT THEME ********
+
+ **/
+.halloween .text-danger {
+    color: #ff6600;
+}
+
+.christmas .text-danger {
+    color: rgb(191, 135, 76);
+    font-size: 1em;
+    font-weight: bold; 
+}
+
+
+/**    
+    ****** BUTTONS THEME ********
+
+ **/
+
+.halloween .btn {
+    background-color: rgb(53, 61, 64); /*some form of gray*/
+    color: #F5F5F5; /*whitesmoke*/
+}
+
+    .halloween .btn:hover, .halloween .btn:focus {
+        background-color: whitesmoke;
+        color: #353D40;
+    }
+
+
+.christmas .btn {
+    background-color: #474973;
+    border-color: #474973;
+    color: #F5F5F5; /*whitesmoke*/
+}
+
+    .christmas .btn:hover, .christmas .btn:focus {
+        background-color: #b09471;
+        border-color: #F5F5F5;
+    }
+
+
+
+
+/**    
+    ****** FOOTER THEME ********
+
+ **/
+
+footer {
+    padding-top: 20px;
+    padding-bottom: 10px; 
+}
+
+    footer .footer-copyright {
+        font-size: .7em;
+        letter-spacing: .5em;
+        line-height: 36px;
+    }
+
+
+    .halloween footer {
+        color: whitesmoke;
+        background-color: rgba(0,0,0,.8)
+    }
+
+    .christmas footer {
+        color: whitesmoke;
+        background-color: #adc3db;
+        background-color: rgba(173, 195, 219, 0.4);
     }
 
 
@@ -42,9 +178,29 @@ a {
     Make ReCAPTCHA box play friendly on phones 
 
  **/
-.g-recaptcha {
-    transform: scale(0.77);
-    -webkit-transform: scale(0.77);
-    transform-origin: 0 0;
-    -webkit-transform-origin: 0 0;
-} 
+
+
+@media (max-width: 450px) {
+
+    .christmas body {
+        background-color: #f1dac4 !important;
+    }
+
+    .g-recaptcha {
+        transform: scale(0.85);
+        -webkit-transform: scale(0.85);
+        transform-origin: 0 0;
+        -webkit-transform-origin: 0 0;
+    }
+
+
+    footer {
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
+
+    footer .footer-copyright {
+        font-size: .7em;
+        letter-spacing: unset;
+    }
+}

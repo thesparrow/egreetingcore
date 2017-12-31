@@ -1,7 +1,7 @@
 ﻿@{ 
     var meta_url = "http://anna.wowoco.org";
     var meta_image = meta_url + ViewBag.meta_image; 
-    var meta_title = "My e-Greeting " + ViewBag.meta_title;
+    var meta_title = "e-Greeting " + ViewBag.meta_title;
     var meta_desc = ViewBag.meta_desc;
     var meta_keyword = "e-greeting, wowoco, design, digital card, " + ViewBag.meta_keyword;
 }
@@ -54,11 +54,11 @@
         @RenderBody()
 
     </div>
-    <footer class="navbar-default navbar-fixed-bottom">
-        <div class="container">
-            <p class="text-center">@DateTime.Now.Year - Halloween Greeting. All rights reserved.</p>
-        </div>
-    </footer>
+<footer class="navbar-default navbar-fixed-bottom">
+    <div class="footer-copyright">
+        <p class="text-center"> © @DateTime.Now.Year - @ViewBag.theme Greeting. All rights reserved.</p>
+    </div>
+</footer>
 
     <!--JQUERY LIBRARY-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
