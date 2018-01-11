@@ -1,7 +1,9 @@
-﻿@model halloween.Models.Greetings
+﻿@model egreeting.Models.Greetings
+
 @using Microsoft.Extensions.Configuration; 
 @inject IConfiguration configuration; 
  
+
 <div class="g-recaptcha" 
      data-theme="light" 
      data-sitekey=@configuration["ReCaptcha:PublicKey"]>

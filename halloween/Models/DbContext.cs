@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace halloween.Models
+namespace egreeting.Models
 {
     public class Database : DbContext
     {

@@ -1,12 +1,12 @@
-﻿using halloween.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Net;
 using System.Net.Mail;
+using egreeting.Models;
 
-namespace halloween.Pages.christmas
+namespace egreeting.Pages.christmas
 {
     public class PreviewModel : PageModel
     {
@@ -51,7 +51,7 @@ namespace halloween.Pages.christmas
             {
                 Greetings = _dbContext.Greetings.Find(ID);
 
-                var emailUrl = "http://anna.wowoco.org/read/" + Greetings.ID;
+                var emailUrl = "http://anna.wowoco.org/christmas/email?id=" + Greetings.ID;
 
                 try
                 {

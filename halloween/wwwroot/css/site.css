@@ -81,14 +81,16 @@ h1 {
  **/
 
 .halloween .form-control:focus {
-    border-color: #000; 
+    border-color: #000;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0, 0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0, 0.6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0, 0.6);
 }
 
 .christmas .form-control:focus {
     border-color: rgb(151, 122, 99);
     -webkit-box-shadow: inset 0 1px 1px rgba(151, 122, 99,.075), 0 0 8px rgba(151, 122, 99, 0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(151, 122, 99,.075), 0 0 8px rgba(151, 122, 99, 0.6);
     box-shadow: inset 0 1px 1px rgba(151, 122, 99,.075), 0 0 8px rgba(151, 122, 99, 0.6);
 }
 
@@ -162,10 +164,11 @@ footer {
 
     .halloween footer {
         color: whitesmoke;
+        background-color: #000000;
         background-color: rgba(0,0,0,.8)
     }
 
-    .christmas footer {
+.christmas footer {
         color: whitesmoke;
         background-color: #adc3db;
         background-color: rgba(173, 195, 219, 0.4);
@@ -183,14 +186,20 @@ footer {
 @media (max-width: 450px) {
 
     .christmas body {
-        background-color: #f1dac4 !important;
+        background-color: #f1dac4;
     }
 
     .g-recaptcha {
-        transform: scale(0.85);
         -webkit-transform: scale(0.85);
-        transform-origin: 0 0;
+        -moz-transform: scale(0.85);
+        -ms-transform: scale(0.85);
+        -o-transform: scale(0.85);
+        transform: scale(0.85);
         -webkit-transform-origin: 0 0;
+        -moz-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        -o-transform-origin: 0 0;
+        transform-origin: 0 0;
     }
 
 

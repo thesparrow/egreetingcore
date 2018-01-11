@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace egreeting.Pages
+namespace egreeting.Pages.christmas
 {
     public class CompleteModel : PageModel
     {

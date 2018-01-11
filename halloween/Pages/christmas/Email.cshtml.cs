@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using egreeting.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using halloween.Models;
 using Microsoft.Extensions.Configuration;
 
-namespace halloween.Pages.christmas
+namespace egreeting.Pages.christmas
 {
     public class EmailModel : PageModel
     {

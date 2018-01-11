@@ -1,19 +1,27 @@
 ﻿@page
 
-@model halloween.Pages.UpdateModel
+@model egreeting.Pages.UpdateModel
+
+
+@{
+    ViewBag.theme = "halloween";
+    ViewBag.dimension = "portrait";
+
+    ViewBag.meta_title = "Update your greeting";
+    ViewBag.meta_desc = "Update your greeting";
+    ViewBag.meta_keyword = "halloween";
+
+}
+
 
 <link rel="stylesheet" href="~/css/dark-theme.css">
 
 <div>
-
-    <div class="page-header">
-        <h1> Update your egreeting </h1>
-    </div>
-
+    
     <form method="post">
         <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-12">
-                @Html.Partial("_Card")       
+                @Html.Partial("_Card")
             </div>
 
             <div class="col-lg-5 col-md-5 col-sm-12">
@@ -21,6 +29,7 @@
             </div>
         </div>
     </form>
+
 </div>
 
 

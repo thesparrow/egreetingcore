@@ -1,52 +1,52 @@
 ﻿@page
-@model halloween.Pages.PreviewModel
+@model egreeting.Pages.PreviewModel
+
+
+
+@{
+    ViewBag.theme = "halloween";
+    ViewBag.dimension = "portrait";
+
+    ViewBag.meta_title = "Preview your greeting";
+    ViewBag.meta_desc = "Preview your greeting before you send";
+    ViewBag.meta_keyword = "halloween";
+
+}
+
+
 
 <link rel="stylesheet" href="~/css/dark-theme.css">
 
-<div>
 
-    <div class="page-header">
-        <h1> Preview of your Halloween message </h1>
+<div class="row">
+    <div class="col-lg-7 col-md-6 col-sm-4">
+        <div class="card"> @Html.Partial("_Card")</div>
     </div>
 
+    <div class="col-lg-5">
 
-    <div class="row">
-        <div class="col-lg-7 col-md-6 col-sm-4">
-            <div class="card"> @Html.Partial("_Card")</div>
+        @Html.Partial("_Preview", Model.Greetings)
 
-        </div>
-
-        <div class="col-lg-5">
-
-            @Html.Partial("_Preview", Model.Greetings)
-            
-            
-            <div class="row">
-                <form method="post">
-                    <!--SEND CARD -->
-                    <div class="col-lg-4 col-md-12 col-sm-12">
-@*                        <div class="form-group">*@
-@*                            <input type="hidden" asp-for="Greetings.ID" />*@
-@*                            <input type="submit" class="btn btn-default btn-block" value="Send" />*@
-                        @*                        </div>*@
-                        
-                        <div class="btn-group">
-                            <a href="/Update?id=@Model.Greetings.ID" class="btn btn-primary">Edit</a>
-                            <input type="submit" value="Send" class="btn btn-primary" />
-                        </div>
+        <div class="row">
+            <form method="post">
+                <!--Send Or Preview CARD -->
+                <div class="btn-group">
+                    <div class="col-lg-6">
+                        <a href="/Update?id=@Model.Greetings.ID" class="btn btn-default">Edit</a>
                     </div>
-                </form>
-            </div>
 
+                    <div class="col-lg-6 col-lg-push-2">
 
-            @section Scripts {
-                <script src="http://www.google.com/recaptcha/api.js"></script>
-                <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-                <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-            }
+                        <input type="submit" value="Send" class="btn btn-default" />
+
+                    </div>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>
+
 
 
 

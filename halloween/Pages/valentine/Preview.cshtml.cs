@@ -1,12 +1,12 @@
-﻿using halloween.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Net;
 using System.Net.Mail;
+using egreeting.Models;
 
-namespace halloween.Pages.valentine
+namespace egreeting.Pages.valentine
 {
     public class PreviewModel : PageModel
     {

@@ -1,9 +1,9 @@
-﻿using halloween.Models;
+﻿using egreeting.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 
-namespace halloween.Pages.valentine
+namespace egreeting.Pages.valentine
 {
     public class ReadModel: PageModel
     {

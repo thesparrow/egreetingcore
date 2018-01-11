@@ -1,8 +1,8 @@
-﻿using halloween.Models;
+﻿using egreeting.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace halloween.Pages
+namespace egreeting.Pages
 {
     public class UpdateModel : PageModel
     {

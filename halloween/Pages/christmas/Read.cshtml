@@ -1,12 +1,16 @@
 ﻿@page "{ID?}"
 
-@using halloween.Pages
-@model halloween.Pages.ReadModel
-
-<link rel="stylesheet" href="~/css/dark-theme.css">
+@model egreeting.Pages.christmas.PreviewModel
 
 @{
-    ViewBag.cssPage = "read";
+    ViewBag.theme = "christmas";
+    ViewBag.dimension = "portrait";
+
+    ViewBag.meta_title = "Wish your friends a warm Christmas.";
+    ViewBag.meta_desc = "See your greeting now.";
+    ViewBag.meta_image = "/images/beautiful_merry_christmas.gif";
+    ViewBag.meta_keyword = "christmas";
+
 }
 
 
@@ -14,12 +18,12 @@
     <div class="panel-heading ">
         <h3><span id="name">@Model.Greetings.FromName</span> sent you a card!</h3>
     </div>
-    
+
     <div class="panel-image hide-panel-body">
-        @Html.Partial("_Card")
+        <img class="img-responsive img-rounded bottom" src="@ViewBag.meta_image"
+             alt="christmas image" />
     </div>
     <div class="panel-body">
-        <h4>Happy HalloWeen.</h4>
         @Html.Partial("_Read", Model.Greetings)
     </div>
     <div class="panel-footer text-center">

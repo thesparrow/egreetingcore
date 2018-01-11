@@ -1,8 +1,8 @@
-﻿using halloween.Models;
+﻿using egreeting.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace halloween.Pages.christmas
+namespace egreeting.Pages.christmas
 {
     public class UpdateModel : PageModel
     {
@@ -21,11 +21,6 @@ namespace halloween.Pages.christmas
             _dbContext = dbContext;
         }
 
-        /**
-         * @param: id of Contacts  
-         *      Extract from DB
-         * 
-         */
         public IActionResult OnGet(int id = 0)
         {
             if (id > 0)
@@ -42,6 +37,7 @@ namespace halloween.Pages.christmas
 
 
         public string ErrorMessage { get; set; }
+
         /** 
          *  @param: Contact id 
          *      Submit form

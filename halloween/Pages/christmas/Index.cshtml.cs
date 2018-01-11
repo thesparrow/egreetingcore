@@ -1,16 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using halloween.Models;
-using System.Threading.Tasks;
-using System;
-using System.Net.Http;
-using Newtonsoft.Json;
+﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using egreeting.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
-namespace halloween.Pages.christmas
+namespace egreeting.Pages.christmas
 {
-    public class IndexModel: PageModel
+    public class IndexModel : PageModel
     {
 
         //BUILD A BRIDGE 
@@ -25,16 +25,14 @@ namespace halloween.Pages.christmas
         private IConfiguration _configuration { get; set; }
 
         //hey, Create the database connection through the constructor
-        public IndexModel(Database dbContext)
+        public IndexModel(Database dbContext, IConfiguration configuration)
         {
             _dbContext = dbContext;
+            _configuration = configuration;
         }
 
         //DEFAULT LOAD 
-        public void OnGet()
-        {
-            
-        }
+        public void OnGet() { }
 
         /**
          * PREVIEW MODE
@@ -62,14 +60,15 @@ namespace halloween.Pages.christmas
 
                         // DB Related add record
                         _dbContext.Greetings.Add(Greetings);
-                        _dbContext.SaveChanges(); 
+                        _dbContext.SaveChanges();
 
                         //REDIRECT to the page with a new operator (name/value pair)
-                        return RedirectToPage("Preview", new { id = Greetings.ID} );
+                        return RedirectToPage("Preview", new { id = Greetings.ID });
                     }
 
-                    catch(Exception ex) {
-                        Console.WriteLine(ex); 
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
                         return RedirectToPage("Index");
                     }
                 }
@@ -100,7 +99,9 @@ namespace halloween.Pages.christmas
                 using (var client = new HttpClient())
                 {
                     var values = new Dictionary<string, string>();
-                    values.Add("secret", "6LfVpjEUAAAAAK0FdygAgh0P1gZ8QU24ildwT86r");
+                    //values.Add("secret", "6LfVpjEUAAAAAK0FdygAgh0P1gZ8QU24ildwT86r");
+                    values.Add("secret", _configuration["ReCaptcha:PrivateKey"]);
+
                     values.Add("response", response);
                     //values.Add("remoteip", this.HttpContext.Connection.RemoteIpAddress.ToString()); 
 

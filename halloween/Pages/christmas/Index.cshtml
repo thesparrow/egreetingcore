@@ -1,5 +1,5 @@
 ﻿@page
-@model halloween.Pages.IndexModel
+@model egreeting.Pages.christmas.IndexModel
 
 
 @{
@@ -10,15 +10,16 @@
     ViewBag.meta_desc = "Create your greeting now.";
     ViewBag.meta_image = "/images/beautiful_merry_christmas.gif";
     ViewBag.meta_keyword = "christmas";
-
 }
+
+
 <link href="~/css/christmas-theme.css" rel="stylesheet" />
 
 <div class="container @ViewBag.theme">
     <div class="row">
         <div class="col-sm-6 text-center">
             <img class="img-responsive img-rounded bottom" src="@ViewBag.meta_image" 
-                        alt="christmas image" />
+                 alt="christmas image" />
         </div>
         <div class="col-sm-6 text-center">
             @Html.Partial("_Form", Model.Greetings)

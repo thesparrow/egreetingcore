@@ -1,4 +1,4 @@
-﻿using halloween.Models;
+﻿using egreeting.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 

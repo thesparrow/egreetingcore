@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using halloween.Models;
 using System.Threading.Tasks;
 using System;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using egreeting.Models;
 using Microsoft.Extensions.Configuration;
 
-namespace halloween.Pages.valentine
+namespace egreeting.Pages.valentine
 {
     public class IndexModel: PageModel
     {
